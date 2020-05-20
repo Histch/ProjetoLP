@@ -1,4 +1,9 @@
 # ProjetoLP
+
+Elementos do Grupo:
+
+Leonardo Carvalho
+
 Distancia entre aeroportos - Árvore binária com 13 nós.
 
 Em anexo vai estar uma imagem com a disposição da nossa árvore binária.
