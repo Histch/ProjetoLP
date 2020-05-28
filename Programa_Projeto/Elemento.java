@@ -1,28 +1,43 @@
-public class Elemento {
+    public class Elemento {
 
-    //Atributos 
+    // 1. ATRIBUTOS
     private int numero;
-    //Construtores
-    public Elemento(){
+    private String nome;
+
+    // 2. CONSTRUTOR
+
+    public Elemento() {
         numero = 0;
+        nome = "";
     }
 
-    public Elemento(int numero){
+    public Elemento(int numero,String nome) {
         super();
+        this.nome = nome;
         this.numero = numero;
     }
-    //Acessores
-    public int getNumero(){
+
+    // 3. ACESSORES
+
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero){
+    public void setNumero(int numero) {
         this.numero = numero;
     }
-    //ToString
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    // toString
     @Override
-    public String toString(){
-        return "[" + numero + "]";
+    public String toString() {
+        return "[" + numero + "]" + "[" + nome + "]";
     }
 
 }
