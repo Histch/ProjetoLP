@@ -60,7 +60,7 @@ public class ArvoreBinaria {
             if(raiz == null) {
                 return false;
             }else {
-                if(nome == raiz.getElemento().getNome()) {
+                if(raiz.getElemento().getNome().equals(nome)) {
                     return true;
                 }else {
                     if(existePais(raiz.getEsq(),nome)) {
@@ -71,6 +71,7 @@ public class ArvoreBinaria {
                 }
             }
         }
+    
 
         public int altura(){
             return altura(raiz);
@@ -97,10 +98,11 @@ public class ArvoreBinaria {
                 return;
             } else if(nivel >= 1) {
                 listarAteNivelDado(raiz.getEsq(), nivel -1);
-                System.out.print(raiz.getElemento().getNumero());
+                System.out.println(raiz.getElemento().getNome());
                 listarAteNivelDado(raiz.getDir(), nivel -1);
             }
         }
+    
 
         //Inserir na arvore 
         

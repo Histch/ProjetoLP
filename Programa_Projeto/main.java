@@ -8,82 +8,77 @@ public class Main {
 
 		ArvoreBinaria a1 = new ArvoreBinaria(criaArvore1());
 		
-		int opcao = 0;
-		String nome ="";
+		menu(a1);
+	}
+
+	private static void menu(ArvoreBinaria a1) {
 		
-		while(opcao != 6) {
-		
-        System.out.println(" ------------ MENU ------------");
+		Scanner scanner = new Scanner(System.in);
+		int choice = 0;
+
+		while(choice != 6){
+
+		System.out.println(" ------------ MENU ------------");
 
         System.out.println("");
 
         System.out.println(" 1 - Saber a nossa localização ");
-        System.out.println(" 2 - Aeroportos disponiveis ");
+        System.out.println(" 2 - Árvore Binária visual ");
         System.out.println(" 3 - Quantidade de Países ou Cidades (Açores ou Madeira) existentes?");
         System.out.println(" 4 - Procurar Países ou Cidades (Açores, Madeira) ");
         System.out.println(" 5 - Para que pais deseja ir?");
         System.out.println(" 6 - Sair ");
+        
+        System.out.print("\nEscreva aqui a opção: ");
+        
+        choice = scanner.nextInt();
 
-        System.out.println("");
-        
-        opcao = lerOpcao();
-        
-        switch(opcao) {
-        	case 1:
-        		System.out.println("A sua localização: " + a1.raiz().getElemento().getNome());
-        		break;
-        	case 2: 
-        		a1.lnr();
-        		break;
-        	case 3:
-        		System.out.println("Número de paises: "+ a1.contar());
-        		break;
-        	case 4: 
-        		System.out.println("Procurar o pais: ");
-        		nome = lerNome();
-        		System.out.println("Procura pais '"+ nome +"': " + a1.existePais(nome));
-        		break;
-        	case 5:
-        		System.out.print("Para que pais deseja ir? ");
-        		nome = lerNome();
-        		teste(nome);
-        		break;
-        	}  
+		switch (choice) {
+		case 1:
+    		System.out.println("No raiz: " + a1.raiz().getElemento().getNome());
+    		break;
+		case 2: 
+    		a1.lnr();
+    		break;
+		case 3:
+    		System.out.println("Numero de paises: "+ a1.contar());
+    		break;
+		case 4: 
+    		System.out.println("Procurar o pais: ");
+    		String nomeProcurar = scanner.next();
+    		System.out.println("Procura pais '"+ nomeProcurar +"': " + a1.existePais(nomeProcurar));
+    		break;
+		case 5:
+    		System.out.print("Para que pais deseja ir? ");
+    		String paisDesejado = scanner.next();
+    		localizacao(paisDesejado);
+    		break;
+    		
 		}
-		
-		//Existe Pais!
-		//System.out.println("Procura pais Portugal: " + a1.existePais("Portugal")); // true
-		//System.out.println("Procura pais Russia: " + a1.existePais("Russia")); // false 
+
+	}
 		
 	}
+
+	//Acrescentar os km, nos percussos na função localizacao
+	//Adicionar novos locais ou seja localizações
+	//Listar apenas o nivel dado
 	
-	public static String teste(String nome) {
-		if(nome == "França") {
+	private static void localizacao(String nome) {
+		ArvoreBinaria a1 = new ArvoreBinaria(criaArvore1());
+		if(nome.equals("Franca")) {
 			a1.listarAteNivelDado(1);
-		}else if(nome == "Espanha" || nome == "Suiça") {
+		}else if(nome.equals( "Espanha") || nome.equals("Suica")) {
 			a1.listarAteNivelDado(2);
-		}else if(nome == "Portugal" || nome == "Itália" || nome == "Alemanha" || nome == "Autria") {
+		}else if(nome.equals("Portugal") || nome.equals( "Italia" )|| nome.equals("Alemanha")|| nome.equals("Austria") ) {
 			a1.listarAteNivelDado(3);
-		}else if(nome == "Açores" || nome == "Madeira" || nome == "Polonia" || nome == "República Checa" || nome == "Eslováquia" || nome == "Hungria") {
+		}else if(nome.equals("Acores") || nome.equals("Madeira") || nome.equals("Polonia") || nome.equals("Republica Checa") || nome.equals("Eslovaquia") || nome.equals("Hungria")) {
 			a1.listarAteNivelDado(4);
 		}else {
 			System.out.println("Destino não disponivel: " + nome);
 		}
-		return nome;
 	}
-	
-	public static int lerOpcao() {
-		// deviamos validar :)
-		Scanner ler = new Scanner(System.in);
-		int numero = ler.nextInt();
-		return numero;
-	}
-	
-	public static String lerNome() {
-		Scanner ler = new Scanner(System.in);
-		String nome = ler.next();
-		return nome;
-	}
+
 
 	static public No criaArvore1() {
 		
