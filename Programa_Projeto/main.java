@@ -16,7 +16,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		int choice = 0;
 
-		while(choice != 6){
+		while(choice != 7){
 
 		System.out.println(" ------------ MENU ------------");
 
@@ -26,8 +26,9 @@ public class Main {
         System.out.println(" 2 - Árvore Binária visual ");
         System.out.println(" 3 - Quantidade de Países ou Cidades (Açores ou Madeira) existentes?");
         System.out.println(" 4 - Procurar Países ou Cidades (Açores, Madeira) ");
-        System.out.println(" 5 - Para que pais deseja ir?");
-        System.out.println(" 6 - Sair ");
+		System.out.println(" 5 - Para que pais deseja ir?");
+		System.out.println(" 6 - Inserir nova localização ");
+        System.out.println(" 7 - Sair ");
         
         System.out.print("\nEscreva aqui a opção: ");
         
@@ -49,11 +50,24 @@ public class Main {
     		System.out.println("Procura pais '"+ nomeProcurar +"': " + a1.existePais(nomeProcurar));
     		break;
 		case 5:
-    		System.out.print("Para que pais deseja ir? ");
-    		String paisDesejado = scanner.next();
+    		System.out.println("Para que pais deseja ir? ");
+			String paisDesejado = scanner.next();
+			System.out.println("Paises a percorrer: ");
     		localizacao(paisDesejado);
+			break;
+		case 6:
+			System.out.println("Inserir nova localização: ");
+			System.out.println("Número da localização tem de ser maior que o número de localizações ja existentes!");
+			System.out.println("Localização: ");
+			String novaLocalizacao = scanner.next();
+			System.out.println("Número da localização: ");
+			int numeroLocalizacao = scanner.nextInt();
+			if(numeroLocalizacao <= a1.contar()){
+				System.out.println("Número de localização não válido!");
+			}else{
+				a1.inserir(numeroLocalizacao,novaLocalizacao);
+			}
     		break;
-    		
 		}
 
 	}
@@ -65,15 +79,58 @@ public class Main {
 	//Listar apenas o nivel dado
 	
 	private static void localizacao(String nome) {
+		int franca = 0, espanha = 826, suica = 473, portugal = 354, italia = 1436, alemanha = 531, austria = 403, acores = 1516, madeira = 1098, polonia = 656, repcheca = 372, eslovaquia = 482, hungria = 505 ;
+		int resultado = 0;
 		ArvoreBinaria a1 = new ArvoreBinaria(criaArvore1());
 		if(nome.equals("Franca")) {
 			a1.listarAteNivelDado(1);
-		}else if(nome.equals( "Espanha") || nome.equals("Suica")) {
+			System.out.println("Distânica percorrida: " + franca + "Km");
+		}else if(nome.equals( "Espanha")) {
 			a1.listarAteNivelDado(2);
-		}else if(nome.equals("Portugal") || nome.equals( "Italia" )|| nome.equals("Alemanha")|| nome.equals("Austria") ) {
+			System.out.println("Distânica percorrida: " + espanha + "Km");
+		}else if(nome.equals("Suica")){
+			a1.listarAteNivelDado(2);
+			System.out.println("Distânica percorrida: " + suica + "Km");
+		}else if(nome.equals("Portugal")){
 			a1.listarAteNivelDado(3);
-		}else if(nome.equals("Acores") || nome.equals("Madeira") || nome.equals("Polonia") || nome.equals("Republica Checa") || nome.equals("Eslovaquia") || nome.equals("Hungria")) {
+			resultado = espanha + portugal;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Italia")){
+			a1.listarAteNivelDado(3);
+			resultado = espanha + italia;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Alemanha")){
+			a1.listarAteNivelDado(3);
+			resultado = suica + alemanha;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Austria")){
+			a1.listarAteNivelDado(3);
+			resultado = suica + austria;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Acores")){
 			a1.listarAteNivelDado(4);
+			resultado = espanha + portugal + acores;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Madeira")){
+			a1.listarAteNivelDado(4);
+			resultado = espanha + portugal + madeira;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Polonia")){
+			a1.listarAteNivelDado(4);
+			resultado = suica + alemanha + polonia;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Republica Checa")){
+			a1.listarAteNivelDado(4);
+			resultado = suica + alemanha + repcheca;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
+		}else if(nome.equals("Eslovaquia")){
+			a1.listarAteNivelDado(4);
+			resultado = suica + austria + eslovaquia;
+			System.out.println("Distânica percorrida: " + resultado+ "Km");
+		}else if(nome.equals("Hungria")){
+			a1.listarAteNivelDado(4);
+			resultado = suica + austria + hungria;
+			System.out.println("Distânica percorrida: " + resultado + "Km");
 		}else {
 			System.out.println("Destino não disponivel: " + nome);
 		}

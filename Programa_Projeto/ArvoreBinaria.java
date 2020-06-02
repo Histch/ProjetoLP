@@ -97,8 +97,8 @@ public class ArvoreBinaria {
                 //System.out.print("Arvore vazia"); Assim imprime sempre "Arvore Vazia" cada vez que vai la 
                 return;
             } else if(nivel >= 1) {
-                listarAteNivelDado(raiz.getEsq(), nivel -1);
                 System.out.println(raiz.getElemento().getNome());
+                listarAteNivelDado(raiz.getEsq(), nivel -1);
                 listarAteNivelDado(raiz.getDir(), nivel -1);
             }
         }
