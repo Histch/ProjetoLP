@@ -36,7 +36,7 @@ public class Main {
 
 		switch (choice) {
 		case 1:
-    		System.out.println("No raiz: " + a1.raiz().getElemento().getNome());
+    		System.out.println("A sua localização: " + a1.raiz().getElemento().getNome());
     		break;
 		case 2: 
     		a1.lnr();
