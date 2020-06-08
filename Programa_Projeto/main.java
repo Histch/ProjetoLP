@@ -42,7 +42,7 @@ public class Main {
     		a1.lnr();
     		break;
 		case 3:
-    		System.out.println("Numero de paises: "+ a1.contar());
+    		System.out.println("Número de paises: "+ a1.contar());
     		break;
 		case 4: 
     		System.out.println("Procurar o pais: ");
